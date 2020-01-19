@@ -7,6 +7,7 @@ import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import Nav from "./layouts/Nav";
 import Main from "./layouts/Main";
+import Aside from "./layouts/Aside";
 
 const store = createStore(reducers);
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Header title = {"CPU Allocation"}/>
         <Nav/>
         <Main/>
+        <Aside/>
         <Footer/>
       </div>
     </Provider>
