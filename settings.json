@@ -1,0 +1,8 @@
+{
+    "algorithms":[
+        "FCFS",
+        "Priority",
+        "SJF"
+
+    ]
+}
