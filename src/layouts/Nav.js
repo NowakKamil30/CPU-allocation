@@ -1,7 +1,10 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-
-const Nav = ()=> {
+import {connect} from "react-redux";
+import {showAlgorithmList} from "../actions/index";
+import AlgorithmList from "../components/AlgorithmList";
+import Button from "../components/Button"; 
+const Nav = ({showAlgorithmList})=> {
     return(
         <nav className="navigation">
             <ul className="navigation__list">
@@ -20,11 +23,17 @@ const Nav = ()=> {
                 <li >
                     <NavLink to="/showChart" exact activeClassName="navigation__link--active" className="navigation__link">Pokaż wykres</NavLink>
                 </li>
-                <li>
-                    
+                <li> 
+                    <Button onClick = {()=>{showAlgorithmList()}}text="wybierz algorytm"/>
                 </li>
             </ul>
+                <AlgorithmList/>
         </nav>
     )
 }
-export default Nav;
+const mapStateToProps = state =>{
+    return{
+
+    }
+}
+export default connect(mapStateToProps,{showAlgorithmList})(Nav);
