@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 import reducers from "./reducers";
@@ -9,6 +10,7 @@ import Main from "./layouts/Main";
 const store = createStore(reducers);
 function App() {
   return (
+    <BrowserRouter>
     <Provider store = {store}>
       <div className="App">
         <Header title = {"CPU Allocation"}/>
@@ -16,6 +18,7 @@ function App() {
         <Footer/>
       </div>
     </Provider>
+    </BrowserRouter>
   );
 }
 
