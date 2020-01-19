@@ -3,18 +3,19 @@ import {NavLink} from "react-router-dom";
 
 const Nav = ()=> {
     return(
-        <nav>
-            <ul>
-                <li>
-                    <NavLink to="/createPIDs">Stwórz procesy</NavLink>
+        <nav className="navigation">
+            <ul className="navigation__list">
+                <li className="navigation__link">
+                    <NavLink to="/createPIDs" exact activeClassName="navigation__link--active" >Stwórz procesy</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/showSimulation">Pokaż symulację</NavLink>
+                <li className="navigation__link">
+                    <NavLink to="/showSimulation" exact activeClassName="navigation__link--active">Pokaż symulację</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/showChart">Pokaż wykres</NavLink>
+                <li className="navigation__link">
+                    <NavLink to="/showChart" exact activeClassName="navigation__link--active">Pokaż wykres</NavLink>
                 </li>
             </ul>
         </nav>
     )
 }
+export default Nav;
