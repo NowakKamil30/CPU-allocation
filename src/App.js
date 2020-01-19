@@ -5,6 +5,7 @@ import {createStore} from "redux";
 import reducers from "./reducers";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
+import Nav from "./layouts/Nav";
 import Main from "./layouts/Main";
 
 const store = createStore(reducers);
@@ -14,6 +15,7 @@ function App() {
     <Provider store = {store}>
       <div className="App">
         <Header title = {"CPU Allocation"}/>
+        <Nav/>
         <Main/>
         <Footer/>
       </div>
