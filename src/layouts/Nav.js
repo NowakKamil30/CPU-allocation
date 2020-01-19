@@ -5,14 +5,23 @@ const Nav = ()=> {
     return(
         <nav className="navigation">
             <ul className="navigation__list">
-                <li className="navigation__link">
-                    <NavLink to="/createPIDs" exact activeClassName="navigation__link--active" >Stwórz procesy</NavLink>
+                <li >
+                    <NavLink to="/" exact activeClassName="navigation__link--active"  className="navigation__link">Home</NavLink>
                 </li>
-                <li className="navigation__link">
-                    <NavLink to="/showSimulation" exact activeClassName="navigation__link--active">Pokaż symulację</NavLink>
+                <li >
+                    <NavLink to="/createPIDs" exact activeClassName="navigation__link--active" className="navigation__link">Stwórz procesy</NavLink>
                 </li>
-                <li className="navigation__link">
-                    <NavLink to="/showChart" exact activeClassName="navigation__link--active">Pokaż wykres</NavLink>
+                <li >
+                    <NavLink to="/showSimulation" exact activeClassName="navigation__link--active" className="navigation__link">Pokaż symulację</NavLink>
+                </li>
+                <li >
+                    <NavLink to="/showStatistics" exact activeClassName="navigation__link--active" className="navigation__link">Pokaż statystyki</NavLink>
+                </li>
+                <li >
+                    <NavLink to="/showChart" exact activeClassName="navigation__link--active" className="navigation__link">Pokaż wykres</NavLink>
+                </li>
+                <li>
+                    
                 </li>
             </ul>
         </nav>
