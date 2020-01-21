@@ -4,7 +4,7 @@ import React from 'react';
 const Task = ({task}) => {
     return (  
         <li className="taskList__item">
-            <p className={task}>{task}</p>
+            <p className="taskList__text">{task}</p>
         </li>
     );
 }
