@@ -1,10 +1,16 @@
-import {change_algorithm,add_pid} from "../actions/types";
+import {
+  change_algorithm,
+  add_pid,
+  reset_pids,
+  simulation_work} from "../actions/types";
 
 
-const INITIAL_STATE = {pids:[], algorithm:""};
+const INITIAL_STATE = {
+   pids:[],
+   algorithm:"",
+   isWork:false};
 
 export default (state = INITIAL_STATE, action) => {
-  console.log(action);
   switch (action.type) {
     case change_algorithm:{
       const {payload} = action;
@@ -15,6 +21,13 @@ export default (state = INITIAL_STATE, action) => {
       const newPids = [...state.pids];
       newPids.push(payload);
       return {...state,pids:newPids}
+    }
+    case reset_pids:{
+      return {...state,pids:INITIAL_STATE.pids};
+    }
+    case simulation_work:{
+      const{payload} = action;
+      return {...state, isWork:payload}
     }
     default:{
       return state;

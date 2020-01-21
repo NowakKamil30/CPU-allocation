@@ -4,7 +4,6 @@ import {add_task_to_pid,edit_task_pid,name_pid,priority_pid,reset_pid} from "../
 const INITIAL_STATE = {pidTasks:[],name:"",priority:1};
 
 export default (state = INITIAL_STATE, action) => {
-  console.log(action);
   switch (action.type) {
       case edit_task_pid:
       {
