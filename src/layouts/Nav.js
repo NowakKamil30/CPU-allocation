@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {showAlgorithmList} from "../actions/index";
 import AlgorithmList from "../components/AlgorithmList";
 import Button from "../components/Button"; 
-const Nav = ({showAlgorithmList})=> {
+const Nav = ({showAlgorithmList,isWork})=> {
     return(
         <nav className="navigation">
             <ul className="navigation__list">
@@ -24,7 +24,9 @@ const Nav = ({showAlgorithmList})=> {
                     <NavLink to="/showChart" exact activeClassName="navigation__link--active" className="navigation__link">Pokaż wykres</NavLink>
                 </li>
                 <li> 
-                    <Button onClick = {()=>{showAlgorithmList()}}text="wybierz algorytm"/>
+                    <Button
+                    disabled={isWork}
+                    onClick = {()=>{showAlgorithmList()}}text="wybierz algorytm"/>
                 </li>
             </ul>
                 <AlgorithmList/>
@@ -33,7 +35,7 @@ const Nav = ({showAlgorithmList})=> {
 }
 const mapStateToProps = state =>{
     return{
-
+        isWork: state.allocation.isWork
     }
 }
 export default connect(mapStateToProps,{showAlgorithmList})(Nav);
