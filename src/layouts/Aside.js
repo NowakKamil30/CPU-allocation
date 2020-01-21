@@ -1,9 +1,11 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {resetPids} from "../actions/index";
+import Button from "../components/Button";
 import PID from "../components/PID";
-const Aside = ({pids})=>{
+const Aside = ({pids,resetPids})=>{
     return (
-        <aside>
+        <aside className="aside">
             {pids.map(({name,tasks,priority,id})=>(
                 <PID
                 key={id}
@@ -13,6 +15,13 @@ const Aside = ({pids})=>{
                 id={id}
                 />
             ))}
+            {pids.length>0?
+            <Button 
+            text="reset"
+            onClick={resetPids}
+            className={"button aside__button"}
+            />
+            :null}
         </aside>
     );
 }
@@ -21,4 +30,4 @@ const mapStateToProps = state =>{
         pids:state.allocation.pids
     }
 }
-export default connect(mapStateToProps,{})(Aside);
+export default connect(mapStateToProps,{resetPids})(Aside);
