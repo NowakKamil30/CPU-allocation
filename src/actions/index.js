@@ -1,10 +1,14 @@
-import {change_algorithm,
+import {
+    change_algorithm,
     show_algorithm_list,
     add_task_to_pid,
     edit_task_pid,
     name_pid,
     priority_pid,
-    reset_pid,add_pid} from "./types";
+    reset_pid,
+    add_pid,
+    reset_pids,
+    simulation_work} from "./types";
 
 export const changeAlgorithm = (algoritm) =>(
     {
@@ -50,5 +54,16 @@ export const addPid = (pid) =>(
     {
         type:add_pid,
         payload:pid
+    }
+)
+export const resetPids = () =>(
+    {
+        type:reset_pids
+    }
+)
+export const simulationWork = (isWork) =>(
+    {
+        type:simulation_work,
+        payload:isWork
     }
 )

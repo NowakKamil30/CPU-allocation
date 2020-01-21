@@ -6,3 +6,5 @@ export const name_pid="NAME_PID";
 export const priority_pid="PRIORITY_PID";
 export const reset_pid="RESET_PID";
 export const add_pid="ADD_PID";
+export const reset_pids="RESET_PIDS";
+export const simulation_work = "SIMULATION_WORK";
