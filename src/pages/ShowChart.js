@@ -13,24 +13,27 @@ import {
 import preparePidsToAlgorithm from "../helpers/preparePidsToAlgorithm";
 import prepareDataToChart from "../helpers/prepareDataToChart";
 import addWaiting from "../helpers/addWaiting";
+import barDaraArray from "../helpers/barDataArray";
 
 
 
 const ShowChart = ({pids,algorithm}) => {
-    const[data,setData]=useState([])
+    const[data,setData]=useState([]);
+    const[dataBars,setDataBars]=useState([]);
     useEffect(()=>{
         if(pids.length>0){
             let prepareData;
             prepareData=preparePidsToAlgorithm(pids,algorithm);
+            setDataBars(barDaraArray(prepareData));
             prepareData=addWaiting(prepareData);
             prepareData = prepareDataToChart(prepareData);
-           console.log(algorithm)
-           console.log(prepareData);
+            console.log(algorithm)
             setData(prepareData);
         }
-    },[setData,algorithm])
+    },[setData,algorithm,setDataBars])
 
-      
+      const colorCPU="#FE9E76";
+      const colorIO="#F5E027";
     return (
         <>
              {
@@ -56,12 +59,14 @@ const ShowChart = ({pids,algorithm}) => {
         <XAxis type="number" />
         <YAxis type="category" dataKey="id"  />
         <Tooltip />
-        <Legend/>
-        <Bar dataKey="waiting" stackId="a" fill="rgba(0,0,0,1)" />
-        <Bar dataKey="CPU" stackId="a" fill="#FE9E76" />
-        <Bar dataKey="IO" stackId="a" fill="#F5E027" />
-        <Bar dataKey="CPU1" stackId="a" fill="#FE9E76" />
-        <Bar dataKey="IO1" stackId="a" fill="#F5E027" />
+        <Bar dataKey="waiting" stackId="a" fill="rgba(0,0,0,0)" />
+        {dataBars.map(({key,type})=>(
+            <Bar dataKey={key} stackId="a" fill={type==="CPU"?colorCPU:colorIO} />
+        ))} 
+        {/* <Bar dataKey="CPU1" stackId="a" fill={colorCPU} />
+        <Bar dataKey="IO1" stackId="a" fill={colorIO} />
+        <Bar dataKey="CPU2" stackId="a" fill={colorCPU} />
+        <Bar dataKey="IO2" stackId="a" fill={colorIO} />  */}
       </BarChart>
         } 
 
