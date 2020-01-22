@@ -3,10 +3,10 @@ import {connect} from "react-redux";
 import {
     tasksAll,
     waitingALL,
-    cpuAll,
-    ioAll} from "../helpers/forStatistics";
+    cpuAll} from "../helpers/forStatistics";
 import addWaiting from "../helpers/addWaiting";
 import preparePidsToAlgorithm from "../helpers/preparePidsToAlgorithm";
+import StatisticsItem from "../components/StatisticsItem";
 const ShowStatistics = ({pids,algorithm}) => {
     const[dataPids,setDataPids]=useState(pids);
     useEffect(()=>{
@@ -26,14 +26,14 @@ const ShowStatistics = ({pids,algorithm}) => {
         <>
             <ul className="statistics__list">
                 {addWaiting(dataPids).map(({waiting,tasks,id,name})=>(
-                    <li key={id} className="statistics__item">
-                        <p className="statistics__name">{name}({id})</p>
-                        <p className="statistics__text">waiting: {waiting}</p>
-                        <p className="statistics__text">response: {waiting}</p>
-                        <p className="statistics__text">GPU: {cpuAll([{tasks}])/cpuAll(dataPids)*100}%</p>
-                        <p className="statistics__text">IO: {ioAll([{tasks}])/ioAll(dataPids)*100}%</p>
-                        <p className="statistics__text">Turnaround: {tasks.length+waiting}</p>
-                    </li>
+                    <StatisticsItem
+                    key={id}
+                    id={id}
+                    name={name}
+                    waiting={waiting}
+                    tasks={tasks}
+                    dataPids={dataPids}
+                    />
                 ))}
             </ul>
             <p className="main__text main__text--important">Avg. Response time: {Math.round(waitingALL(dataPids)/dataPids.length*100)/100}</p>
