@@ -6,9 +6,8 @@ import ReduxThunk from "redux-thunk";
 import reducers from "./reducers";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
-import Nav from "./layouts/Nav";
 import Main from "./layouts/Main";
-import Aside from "./layouts/Aside";
+import "./css/index.min.css";
 
 const store = createStore(reducers,{},applyMiddleware(ReduxThunk));
 function App() {
@@ -17,9 +16,7 @@ function App() {
     <Provider store = {store}>
       <div className="App">
         <Header title = {"CPU Allocation"}/>
-        <Nav/>
         <Main/>
-        <Aside/>
         <Footer/>
       </div>
     </Provider>
