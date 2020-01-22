@@ -7,7 +7,7 @@ const addWaiting = (data)=>{
         {
             waiting+=data[j].tasks.length;
         }
-        newData.push({...data[i],waiting})
+        newData.push({...data[i],waiting});
     }
     return newData;
 }

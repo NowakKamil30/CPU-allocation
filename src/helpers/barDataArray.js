@@ -1,8 +1,32 @@
-const prepareDataToChart = (data) =>{
-    let result=[];
+const createArray=(io,cpu)=>{
+    const result = [];
+    let currentCpu=0;
+    let currentIo=0;
+    while(currentCpu+currentIo<io+cpu)
+    {
+        if(currentCpu<cpu)
+        {
+            currentCpu++;
+            result.push({key:"CPU"+currentCpu,type:"CPU"});
+        }
+        if(currentIo<io)
+        {
+            currentIo++;
+            result.push({key:"IO"+currentIo, type:"IO"});
+        }
+    }
+    result.push({key:"PCU"+(currentCpu+1),type:"CPU"});
+    result.push({key:"IO"+(currentIo+1), type:"IO"});
+    console.log(result);
+    return result;
+}
+
+const barDataArray = (data) =>{
+ 
+    let maxIO=0;
+    let maxCPU=0;
     for (let i=0;i<data.length;i++) {
         const {tasks} = data[i];
-        let record = {};
         let cpuTask=0;
         let ioTask=0;
         let cpuPart=0;
@@ -13,7 +37,6 @@ const prepareDataToChart = (data) =>{
                 if(ioTask>0)
                 {
                     ioPart++;
-                    record={...record,["IO"+ioPart]:ioTask}
                     ioTask=0;
                 }
                     cpuTask++;    
@@ -24,28 +47,32 @@ const prepareDataToChart = (data) =>{
                 if(cpuTask>0)
                 {
                     cpuPart++;
-                    record={...record,["CPU"+cpuPart]:cpuTask}
                     cpuTask=0;
                 }
                     ioTask++; 
             }
-            if(j==tasks.length-1)
+            if(j===tasks.length-1)
             {
                 if(tasks[j]==="CPU")
                 {
                     cpuPart++;
-                    record={...record,["CPU"+cpuPart]:cpuTask}
                 }
                 else
                 {
                     ioPart++;
-                    record={...record,["IO"+ioPart]:ioTask}
                 }
             }
         }
-        result.push({id:data[i].id,name:data[i].name,...record,waiting:data[i].waiting});
+        if(ioPart>maxIO)
+        {
+            maxIO=ioPart;
+        }
+        if(cpuPart>maxCPU)
+        {
+            maxCPU=cpuPart;
+        }
     }
-    return result;
+    return createArray(maxIO,maxCPU);
 }
 
-export default prepareDataToChart;
+export default barDataArray;
