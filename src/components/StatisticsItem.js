@@ -6,7 +6,7 @@ import {
 const StatisticsItem = ({name,id,waiting,tasks,dataPids}) => {
     return ( 
         <li className="statistics__item">
-        <p className="statistics__name">{name}({id})</p>
+        <p className="statistics__text">{name}({id})</p>
         <p className="statistics__text">waiting: {waiting}</p>
         <p className="statistics__text">response: {waiting}</p>
         <p className="statistics__text">GPU: {cpuAll([{tasks}])/cpuAll(dataPids)*100}%</p>

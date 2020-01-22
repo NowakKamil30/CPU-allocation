@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route,Switch}  from "react-router-dom";
+import Aside from "./Aside";
 import Home from "../pages/Home";
 import CreatePIDs from "../pages/CreatePIDs";
 import ShowChart from "../pages/ShowChart";
@@ -9,7 +10,8 @@ import ErrorPage from "../pages/ErrorPage";
 
 const Main = () =>{
     return (
-        <main>
+        <main className="main">
+            <Aside/>
             <Switch>
                 <Route path="/" exact component={Home}/>
                 <Route path="/createPIDs" exact component={CreatePIDs}/>

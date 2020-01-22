@@ -35,42 +35,38 @@ const ShowChart = ({pids,algorithm}) => {
       const colorCPU="#FE9E76";
       const colorIO="#F5E027";
     return (
-        <>
-             {
-        pids.length===0
-        ?
-        <h3>Proszę stworzyć proces</h3>
-        :
-            algorithm===""
-            ?
-        <h3>Proszę wybrać algorytm</h3>
-        :
-        
-        <BarChart
-        layout="vertical"
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20, right: 30, left: 20, bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis type="number" />
-        <YAxis type="category" dataKey="id"  />
-        <Tooltip />
-        <Bar dataKey="waiting" stackId="a" fill="rgba(0,0,0,0)" />
-        {dataBars.map(({key,type})=>(
-            <Bar dataKey={key} stackId="a" fill={type==="CPU"?colorCPU:colorIO} />
-        ))} 
-        {/* <Bar dataKey="CPU1" stackId="a" fill={colorCPU} />
-        <Bar dataKey="IO1" stackId="a" fill={colorIO} />
-        <Bar dataKey="CPU2" stackId="a" fill={colorCPU} />
-        <Bar dataKey="IO2" stackId="a" fill={colorIO} />  */}
-      </BarChart>
-        } 
+        <div className="chart">
+                {
+                    pids.length===0
+                    ?
+                    <h3 className="error error--big">Proszę stworzyć proces</h3>
+                    :
+                        algorithm===""
+                        ?
+                    <h3 className="error error--big">Proszę wybrać algorytm</h3>
+                    :
+                    
+                    <BarChart
+                    layout="vertical"
+                    width={700}
+                    height={500}
+                    data={data}
+                    margin={{
+                    top: 20, right: 30, left: 20, bottom: 5,
+                    }}
+                >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis type="number" />
+                    <YAxis type="category" dataKey="id"  />
+                    <Tooltip />
+                    <Bar dataKey="waiting" stackId="a" fill="rgba(0,0,0,0)" />
+                    {dataBars.map(({key,type})=>(
+                        <Bar dataKey={key} stackId="a" fill={type==="CPU"?colorCPU:colorIO} />
+                    ))} 
+                </BarChart>
+            } 
 
-        </>
+        </div>
     )
 }
  const mapStateToPros = state =>{

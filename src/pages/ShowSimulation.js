@@ -47,25 +47,25 @@ const ShowSimulation = ({
             }
     }
     return (
-    <>
+    <div className="simulation">
     {
         pids.length===0
         ?
-        <h3>Proszę stworzyć proces</h3>
+        <h3 className="error error--big">Proszę stworzyć proces</h3>
         :
             algorithm===""
             ?
-        <h3>Proszę wybrać algorytm</h3>
+        <h3 className="error error--big">Proszę wybrać algorytm</h3>
         :
         <Button
         text={isWork?
             "resetuj symulacje"
             :"Uruchom symulacje"}
-        className="button"
+        className="button button--simulation"
         onClick={startSimulationHandle}
         />
     }
-        <ul className="showSimulation__list">
+        <ul className="simulation__list">
              {tasks.map(({task,pid,id,priority},index)=>(
             <PIDTask
             key={id+":"+index}
@@ -76,7 +76,7 @@ const ShowSimulation = ({
             />))}
         </ul>
     
-    </>
+    </div>
     );
 }
 const mapStateToProps = state =>{

@@ -6,20 +6,22 @@ import PID from "../components/PID";
 const Aside = ({pids,resetPids})=>{
     return (
         <aside className="aside">
-            {pids.map(({name,tasks,priority,id})=>(
-                <PID
-                key={id}
-                name={name}
-                tasks={tasks}
-                priority={priority}
-                id={id}
-                />
-            ))}
+            <ul className="aside__list">
+                {pids.map(({name,tasks,priority,id})=>(
+                    <PID
+                    key={id}
+                    name={name}
+                    tasks={tasks}
+                    priority={priority}
+                    id={id}
+                    />
+                ))}
+            </ul>
             {pids.length>0?
             <Button 
             text="reset"
             onClick={resetPids}
-            className={"button aside__button"}
+            className={"button button--aside aside__button"}
             />
             :null}
         </aside>

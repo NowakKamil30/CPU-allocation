@@ -4,10 +4,9 @@ import Task from "../components/Task";
 const PID = ({name,tasks,priority,id}) => {
     return (
         <li className="pid">
-            <p className="pid__name">{name}</p>
-            <p className="pid__priority">{priority}</p>
-            <p className="pid__id">{id}</p>
-            <ul className={"taskList pid__taskList"}>
+            <p className="pid__name">{name}({id})</p>
+            <p className="pid__priority">priorytet: {priority}</p>
+            <ul className={"pid__list"}>
                 {tasks.map((task,index)=>(
                 <Task 
                 key={index} 

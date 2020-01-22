@@ -5,12 +5,25 @@ import {algorithms} from "../settings.json";
 import Button from './Button';
 const AlgoritmList = ({algorithmText,changeAlgorithm,showList}) => {
     return ( 
-        <div>
+        <div className="algorithm-list">
             {showList?
-            <ul className = "algorithmList">
-                {algorithms.map((algorithm =><li key={algorithm} className="algorithmList__item"> <Button  text={algorithm} onClick={()=>{changeAlgorithm(algorithm)}}className="algorithmList__button" /> </li>))}
+            <ul className = "algorithm-list__list">
+                {algorithms.map((algorithm =>
+                <li key={algorithm} className="algorithm-list__item">        <Button  
+                    text={algorithm} 
+                    onClick={()=>{changeAlgorithm(algorithm)}}
+                    className=
+                    {
+                        algorithmText===algorithm
+                        ?
+                        "button button--algorithm-list  button--active"
+                        :
+                        "button button--algorithm-list"
+                    } 
+                    />
+                </li>
+                 ))}
             </ul>:null}
-            <p>{algorithmText!==""?algorithmText:"proszę wybrać algorytm"}</p>
         </div>
     );
 }

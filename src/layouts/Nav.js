@@ -8,28 +8,30 @@ const Nav = ({showAlgorithmList,isWork})=> {
     return(
         <nav className="navigation">
             <ul className="navigation__list">
-                <li >
+                <li className="navigation__item">
                     <NavLink to="/" exact activeClassName="navigation__link--active"  className="navigation__link">Home</NavLink>
                 </li>
-                <li >
+                <li className="navigation__item">
                     <NavLink to="/createPIDs" exact activeClassName="navigation__link--active" className="navigation__link">Stwórz procesy</NavLink>
                 </li>
-                <li >
+                <li className="navigation__item">
                     <NavLink to="/showSimulation" exact activeClassName="navigation__link--active" className="navigation__link">Pokaż symulację</NavLink>
                 </li>
-                <li >
+                <li className="navigation__item">
                     <NavLink to="/showStatistics" exact activeClassName="navigation__link--active" className="navigation__link">Pokaż statystyki</NavLink>
                 </li>
-                <li >
+                <li className="navigation__item">
                     <NavLink to="/showChart" exact activeClassName="navigation__link--active" className="navigation__link">Pokaż wykres</NavLink>
                 </li>
-                <li> 
+                <li className="navigation__item navigation__item--special"> 
                     <Button
+                    className="button button--navigation"
                     disabled={isWork}
                     onClick = {()=>{showAlgorithmList()}}text="wybierz algorytm"/>
+                    <AlgorithmList/>  
                 </li>
             </ul>
-                <AlgorithmList/>
+       
         </nav>
     )
 }

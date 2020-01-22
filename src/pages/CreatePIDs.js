@@ -10,42 +10,59 @@ const CreatePIDs = ({tasks,addTaskToPid,id,name,priority,namePid,priorityPid,add
     console.log(name);
     return (
  
-        <div className="createPid">
-            <h3>{"id: " + id}</h3>
+        <div className="create-pid">
+            <h3 
+            className={"create-pid__id"}
+            >
+            {"id: " + id}
+            </h3>
             <TextInput
             placeholder="nazwa procesu"
             onChange={(e)=>namePid(e.target.value)}
             label="nazwa procesu"
             value={name}
-            className="createPid__input"
+            className="create-pid__input"
             />
             <NumberInput
             label="Priorytet(1-10)"
             value={priority}
             onChange = {(e)=>priorityPid(e.target.value)}
-            className="createPid__input"
+            className="create-pid__input"
             />
-            <ul className="createPid__list">
-                {tasks.map((task,index)=><li 
+            <ul className="create-pid__list">
+                {tasks.map((task,index)=>
+                <li
+                className="create-pid__item" 
                 key={index}>
                 <ChooseTask 
                 option={task} 
                 index={index}/>
                 </li>)}
             </ul>
-            <Button text="dodaj zadanie" 
-            className={"createPid__button"}
-             onClick={()=>addTaskToPid()}/>
-            {tasks.length>0?
-            <Button 
-            text="dodaj proces" 
-            className={"createPid__button"}
-            onClick={()=>{
-                const pid = {id,name,priority,tasks};
-                addPid(pid);
-                resetPid();}}
-                />
-            :null}
+            <div className="create-pid__button-container">
+                <Button text="dodaj zadanie" 
+                className={"button button--create-pid"}
+                onClick={()=>addTaskToPid()}/>
+                {tasks.length>0?
+                    <>
+                        <Button 
+                        text="dodaj proces" 
+                        className="button button--create-pid"
+                        onClick={()=>{
+                            const pid = {id,name,priority,tasks};
+                            addPid(pid);
+                            resetPid();}}
+                            />
+                            <Button
+                            text="anuluj proces"
+                            className="button button--create-pid"
+                            onClick={()=>{
+                                resetPid();
+                            }}
+                            />
+                    </>
+                :null}
+            </div>
         </div>
     )
 }
