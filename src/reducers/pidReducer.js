@@ -14,7 +14,7 @@ export default (state = INITIAL_STATE, action) => {
       }
       case name_pid:{
           const {payload} = action;
-          if(payload.length<30)
+          if(payload.length<10)
           {
             return {...state,name:payload};
           }
