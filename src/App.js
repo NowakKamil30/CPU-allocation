@@ -12,7 +12,7 @@ import "./css/index.min.css";
 const store = createStore(reducers,{},applyMiddleware(ReduxThunk));
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Provider store = {store}>
       <div className="App">
         <Header title = {"CPU Allocation"}/>
