@@ -29,7 +29,7 @@ const prepareDataToChart = (data) =>{
                 }
                     ioTask++; 
             }
-            if(j==tasks.length-1)
+            if(j===tasks.length-1)
             {
                 if(tasks[j]==="CPU")
                 {
