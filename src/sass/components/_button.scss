@@ -1,0 +1,32 @@
+.button{
+    border: 4px solid var(--secondary-color);
+    font-size: 1.3rem;
+    padding: 5px;
+    &:hover{
+        border-color: var(--third-color);
+    }
+    &--aside{
+        width: 100%;
+        padding: 8px;
+    }
+    &--navigation{
+        margin-left: 100px;
+        background-color: var(--main-color);
+        &:hover{
+            border-color: var(--main-color);
+            background-color: var(--secondary-color);
+            color:var(--main-color);
+        }
+    }
+    &--algorithm-list{
+
+    }
+    &--active{
+        background-color: var(--secondary-color);
+        color:var(--main-color);
+        border: 4px solid var(--main-color);
+    }
+    &--create-pid{
+        margin-top:2px;
+    }
+}

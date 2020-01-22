@@ -1,0 +1,10 @@
+.algorithm-list{
+    position: fixed;
+    top: 12%;
+    right:15%;
+    &__list{
+        background-color: var(--secondary-color);
+        padding: 40px;
+        list-style-type: none;
+    }
+}

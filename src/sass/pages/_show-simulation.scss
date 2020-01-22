@@ -1,0 +1,10 @@
+.simulation{
+    margin: 20px auto 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &__list{
+        list-style-type: none;
+    }
+}

@@ -1,0 +1,16 @@
+.pid{
+    padding: 10px;
+    font-size: 1.1rem;
+    &:nth-child(even){
+        background-color: var(--extra-color);
+    }
+    &__name{
+
+    }
+    &__priority{
+
+    }
+    &__list{
+        list-style-type: none;
+    }
+}

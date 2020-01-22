@@ -1,0 +1,57 @@
+.choose-task{
+    display: flex;
+    margin-bottom: 25px;
+    justify-content:space-around ;
+    &__label{
+        display: block;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+        &:hover .choose-task__checkbox ~ .choose-task__text{
+            background-color: var(--extra-color);
+        }
+        & .choose-task__checkbox:checked ~.choose-task__text{
+            background-color: var(--third-color);
+            color : var(--secondary-color);
+        }
+        & .choose-task__text::after{
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+    }
+    &__checkbox{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    &__text{
+        position: absolute;
+        text-align: center;
+        color: var(--additional-color);
+        line-height: 35px;
+        top: 0;
+        left: 0;
+        height: 35px;
+        width: 35px;
+        background-color: var(--secondary-color);
+        &::after{
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+    }
+}

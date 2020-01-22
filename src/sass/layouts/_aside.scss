@@ -1,0 +1,8 @@
+.aside
+{
+    width: 7%;
+    border-right: 2px solid var(--secondary-color);
+    &__list{
+        list-style-type: none;
+    }
+}

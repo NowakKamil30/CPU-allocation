@@ -1,0 +1,17 @@
+.pid-task{
+    padding: 10px;
+    font-size: 1.1rem;
+    &:first-child
+    {
+        margin-top:20px;
+    }
+    &:nth-child(even){
+        background-color: var(--extra-color);
+    }
+    &__name{
+
+    }
+    &__priority{
+
+    }
+}

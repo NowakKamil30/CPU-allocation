@@ -1,0 +1,14 @@
+.header{
+    position: fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    &__title
+    {
+        color: var(--additional-color);
+        text-transform: uppercase;
+        font-family: 'Playfair Display', serif;
+        margin-left:20px;
+    }
+}
